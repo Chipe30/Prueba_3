@@ -1,21 +1,14 @@
-# Node modules
+# Ignorar node_modules (dependencias)
 node_modules/
 
-# Logs
+# Ignorar logs y archivos temporales
 logs/
 *.log
 
-# Env files
-.env
-
-# IDEs
+# Ignorar configuraciones de IDE/editors
 .vscode/
 .idea/
 
-# OS files
+# Ignorar archivos del sistema operativo
 .DS_Store
 Thumbs.db
-
-
-# package-lock.json
-package-lock.json

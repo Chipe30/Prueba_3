@@ -1,0 +1,11 @@
+node_modules/
+logs/
+*.log
+.env
+src/ssl/*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.git
+.gitignore

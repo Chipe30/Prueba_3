@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "MS Calificación",
+    "_postman_id": "ms-calificacion-collection",
+    "description": "Colección para probar MS Calificación integrado con MS Usuarios y MS Preguntas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login MS Usuarios",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"usuario@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{MS_USUARIOS_URL}}/login",
+          "host": ["{{MS_USUARIOS_URL}}"],
+          "path": ["login"]
+        }
+      }
+    },
+    {
+      "name": "Evaluar Respuesta",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"123\",\n  \"questionId\": \"abc\",\n  \"respuesta\": \"respuesta_usuario\",\n  \"dificultad\": \"media\",\n  \"tipo\": \"opcion_multiple\"\n}"
+        },
+        "url": {
+          "raw": "{{MS_CALIFICACION_URL}}/evaluar",
+          "host": ["{{MS_CALIFICACION_URL}}"],
+          "path": ["evaluar"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "token", "value": "" },
+    { "key": "MS_USUARIOS_URL", "value": "https://localhost:5000" },
+    { "key": "MS_CALIFICACION_URL", "value": "https://localhost:3000" }
+  ]
+}
